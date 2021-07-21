@@ -111,6 +111,8 @@ var div2 = dom.create("<div>div2</div>");
 console.log(div1);
 dom.after(test, div1);
 dom.wrap(testPlus, div2);
+dom.remove(div1);
+console.log(dom.empty(test));
 },{}],"C:/Users/Gene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -138,7 +140,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7022" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9281" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

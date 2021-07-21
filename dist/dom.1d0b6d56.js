@@ -124,6 +124,22 @@ window.dom = {
   wrap: function wrap(node, parent) {
     dom.before(node, parent);
     dom.append(parent, node);
+  },
+  remove: function remove(node) {
+    node.parentNode.removeChild(node);
+    return node;
+  },
+  empty: function empty(node) {
+    var childNodes = node.childNodes; // childNodes = node.childNodes
+
+    var array = []; //把引用还回去
+
+    for (var i = 0; i < childNodes.length; i++) {
+      dom.remove(childNodes[i]);
+      array.push(childNodes[i]);
+    }
+
+    return array;
   }
 };
 },{}],"C:/Users/Gene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -153,7 +169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7022" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "9281" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
