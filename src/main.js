@@ -4,6 +4,11 @@ const div2 = dom.create("<div>div2</div>");
 console.log(div1)
 
 dom.after(test, div1)
-dom.wrap(testPlus, div2)
+dom.wrap(window.testPlus, div2)
 dom.remove(div1)
-console.log(dom.empty(test))
+
+console.log(dom.empty(empty))
+
+dom.attr(test, 'title', 'I am Gene')
+let title = dom.attr(test, 'title')
+console.log(`title: ${title}`)

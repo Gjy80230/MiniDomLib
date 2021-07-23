@@ -22,12 +22,19 @@ window.dom = {
         return node
     },
     empty(node){
-        const {childNodes} = node // childNodes = node.childNodes
-        const array = [] //把引用还回去
-        for(let i=0; i<childNodes.length; i++){
-            dom.remove(childNodes[i])
-            array.push(childNodes[i])
+        let x = node.firstChild
+        let array = []
+        while(x){
+            array.push(dom.remove(node.firstChild))
+            x = node.firstChild
         }
         return array
+    },
+    attr(node, name, value){
+        if(arguments.length === 3){
+            node.setAttribute(name, value)
+        }else if(arguments.length === 2){
+            return node.getAttribute(name)
+        }
     }
 };
