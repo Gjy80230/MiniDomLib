@@ -36,5 +36,41 @@ window.dom = {
         }else if(arguments.length === 2){
             return node.getAttribute(name)
         }
+    },
+    text(node, string){ //适配
+        if(arguments.length === 2){        
+            if('innerText' in node){
+                node.innerText = string //ie
+            }else{
+                node.textContent = string   //firefox
+            }
+        }else if(arguments.length === 1){
+            if('innerText' in node){
+                return node.innerText = string 
+            }else{
+                return node.textContent = string   
+            }
+        }
+    },
+    html(node, string){
+        if(arguments.length === 2){
+            node.innerHTML = string
+        }else if(arguments.length === 1){
+            return node.innerHTML
+        }
+        
+    },
+    style(node, name, value){
+        if(arguments.length === 3){
+            node.style[name] = value
+        }else if(arguments.length === 2){
+            if(typeof name === 'string'){
+                return node.style[name]
+            }else if(name instanceof Object){
+                for(let key in name){
+                    node.style[key] =  name[key]
+                 }
+            } 
+        }
     }
 };

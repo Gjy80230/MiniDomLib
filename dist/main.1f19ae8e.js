@@ -107,8 +107,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"main.js":[function(require,module,exports) {
 var div = dom.create("<div>newDiv</div>");
 var div1 = dom.create("<div>div1</div>");
-var div2 = dom.create("<div>div2</div>");
-console.log(div1);
+var div2 = dom.create("<div>div2</div>"); // console.log(div1)
+
 dom.after(test, div1);
 dom.wrap(window.testPlus, div2);
 dom.remove(div1);
@@ -116,6 +116,13 @@ console.log(dom.empty(empty));
 dom.attr(test, 'title', 'I am Gene');
 var title = dom.attr(test, 'title');
 console.log("title: ".concat(title));
+dom.text(test, '这是个文本');
+dom.style(test, {
+  background: 'blue',
+  color: 'red'
+});
+console.log(dom.style(test, 'color'));
+dom.style(test, 'border', '1px solid black');
 },{}],"C:/Users/Gene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
