@@ -18,3 +18,16 @@ dom.text(test, '这是个文本')
 dom.style(test, {background: 'blue', color: 'red'})
 console.log(dom.style(test, 'color'))
 dom.style(test, 'border', '1px solid black')
+
+dom.class.add(test, 'red')
+dom.class.add(test, 'blue')
+
+dom.class.remove(test, 'blue')
+console.log(dom.class.has(test, 'blue'))
+
+let fn = ()=>{
+    console.log('点击了')
+}
+dom.on(test, 'click', fn)
+
+dom.off(test, 'click', fn)
