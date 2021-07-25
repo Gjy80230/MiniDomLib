@@ -115,18 +115,18 @@ dom.remove(div1);
 console.log(dom.empty(empty));
 dom.attr(test, 'title', 'I am Gene');
 var title = dom.attr(test, 'title');
-console.log("title: ".concat(title));
-dom.text(test, '这是个文本');
-dom.style(test, {
+console.log("title: ".concat(title)); // dom.text(test, '这是个文本')
+
+dom.style(test2, {
   background: 'blue',
   color: 'red'
 });
-console.log(dom.style(test, 'color'));
-dom.style(test, 'border', '1px solid black');
-dom.class.add(test, 'red');
-dom.class.add(test, 'blue');
-dom.class.remove(test, 'blue');
-console.log(dom.class.has(test, 'blue'));
+console.log(dom.style(test2, 'color'));
+dom.style(test2, 'border', '1px solid black');
+dom.class.add(test2, 'red');
+dom.class.add(test2, 'blue');
+dom.class.remove(test2, 'blue');
+console.log(dom.class.has(test2, 'blue'));
 
 var fn = function fn() {
   console.log('点击了');
@@ -134,6 +134,21 @@ var fn = function fn() {
 
 dom.on(test, 'click', fn);
 dom.off(test, 'click', fn);
+var divTest = dom.find('#test')[0];
+console.log(dom.find('.red', divTest)[0]);
+console.log(dom.parent(test));
+var s1 = dom.find('#s1')[0];
+var s2 = dom.find('#s2')[0];
+var s3 = dom.find('#s3')[0];
+console.log(dom.next(s1));
+console.log(dom.siblings(s2));
+console.log(dom.previous(s3));
+var t = dom.find('#travel')[0];
+dom.each(dom.children(t), function (n) {
+  return dom.style(n, 'color', 'red');
+});
+var t2 = dom.find('#t2')[0];
+console.log(dom.index(t2));
 },{}],"C:/Users/Gene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -161,7 +176,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1267" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "10544" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
